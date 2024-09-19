@@ -24,3 +24,13 @@ cat a.txt
 git merge dev
 创建并切换
 git checkout -b xyz
+联系远程仓库
+git remote add origin 远程仓库地址
+查看已关联的远程仓库
+git remote -v
+确保你已经进行了本地分支的提交，并且没有冲突或错误。你可以通过执行以下命令来查看本地分支的状态：
+git status
+当你准备好将本地代码推送到远程仓库时，使用以下命令：
+git push origin 分支名称
+推送当前所在的分支
+git push origin
