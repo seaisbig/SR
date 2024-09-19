@@ -1,0 +1,26 @@
+创建仓库并指定分支名为dev
+git init -b dev 
+查看分支
+git branch
+子弹上膛
+git add .
+提交到版本库
+git commit -m '第一次提交'
+创建一个名为cs的新分支
+git branch cs
+修改分支的名字 cs -> abc
+git branch -m cs abc
+删除abc分支
+git branch -d abc
+若已修改未合并需要强制删除
+git branch -D abc
+查看分支日志
+git log
+分支切换
+git checkout xxx
+查看内容
+cat a.txt
+将dev分支合并到xxx(当前在xxx)
+git merge dev
+创建并切换
+git checkout -b xyz
