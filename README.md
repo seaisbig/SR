@@ -1,7 +1,6 @@
-### SR
-## this is a repository to restore code about symbolic regression when i am in ujn
-## 2024.9.19
-
+### Symbolic Regression
+# this is a repository to restore code about symbolic regression when i am in ujn
+# 2024.9.19
 -------------------------------------------------------------------------------------
 this repository will contain 7 types of methods to realise Symoblic Regression
 + GP
