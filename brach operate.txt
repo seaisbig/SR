@@ -34,3 +34,6 @@ git status
 git push origin 分支名称
 推送当前所在的分支
 git push origin
+将删除进行推送
+git push origin --delete master
+按q进行退出
