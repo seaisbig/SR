@@ -1,5 +1,5 @@
 import pandas as pd
-
+import numpy as np
 data = pd.DataFrame({
     'x1': [1, 2, 3, 4],  # 第一列特征 x1
     'x2': [2, 3, 4, 5],  # 第二列特征 x2
@@ -7,3 +7,5 @@ data = pd.DataFrame({
 })
 
 print(data[['x1','x2']])
+print(data[['y']])
+print(np.random.randn(1))

@@ -1,6 +1,6 @@
 # 导入pandas库，用于处理数据框
 import pandas as pd
-
+import numpy as np
 # 从pysr库中导入PySRRegressor类，进行符号回归
 from pysr import PySRRegressor
 
@@ -8,9 +8,9 @@ from pysr import PySRRegressor
 # 其中 x1 是 [1, 2, 3, 4]，x2 是 [2, 3, 4, 5]，y 是 [3, 5, 7, 9]
 # 该数据表示线性关系，y 大致等于 x1 和 x2 的加权和
 data = pd.DataFrame({
-    'x1': [1, 2, 3, 4],  # 第一列特征 x1
-    'x2': [2, 3, 4, 5],  # 第二列特征 x2
-    'y': [3, 5, 7, 9]    # 目标变量 y
+    'x1': [1, 2, 3, 6,7,3,2],  # 第一列特征 x1
+    'x2': [2, 3, 4, 5,3,2,1],  # 第二列特征 x2
+    'y':  [3, 5, 7, 9,3,2,2]    # 目标变量 y
 })
 
 # 初始化 PySRRegressor 模型，用于符号回归
@@ -25,8 +25,20 @@ model = PySRRegressor(
 
 # 使用 data 中的特征 x1 和 x2 作为输入变量，y 作为目标变量进行模型训练
 # model.fit 会对数据进行符号回归，寻找 x1 和 x2 与 y 之间的数学关系
-model.fit(data[['x1', 'x2']], data['y'])
-
+x=np.linspace(0, 10, 100).reshape(-1,1)
+y = np.sin(np.cos(x)) + np.random.randn(1)
+# model.fit(data[['x1', 'x2']], data['y'])
+model.fit(x,y)
 # 打印训练好的模型，查看模型发现的最佳数学表达式
 # 输出结果是模型对输入和输出关系的符号表示
-print(model)
+equations = model.equations_
+
+# 输出所有方程式
+print(equations)
+
+# 自动选择最优的表达式：损失值最小的
+best_eq = equations.iloc[equations['loss'].idxmin()]
+
+# 输出最优表达式
+print("最适合的表达式：", best_eq['equation'])
+
